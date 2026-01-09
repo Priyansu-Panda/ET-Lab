@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        overflow-x: hidden;
+        /* font-size: large; */
+      }
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      /* .hero-section {
+            min-height: 80vh;
+            } */
+
+      /* .hero1-img {
+            height: 100%;
+            } */
+      .navbar-brand img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        margin: 0 10px 0 20px;
+        padding: 2px;
+      }
+      .navbar-nav .nav-link {
+        position: relative;
+        padding-bottom: 5px;
+      }
+      .navbar-nav .nav-link::after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        width: 0%;
+        /* width: 10%; */
+        /* left:0%; */
+        left: 50%;
+        bottom: 0;
+        background-color: #2f0eeb;
+        transition: width 0.3s ease;
+        transform: translateX(-50%);
+      }
+      .navbar-nav .nav-link:hover::after {
+        width: 70%;
+      }
+
+      .hero1 {
+        min-height: 90vh;
+        background-color: #0c0246;
+        font-size: large;
+        color: white;
+        /* display: flex;
+        align-items: center; */
+        /* text-align: center; */
+        /* padding: 20px; */
+      }
+      .hero1-btn {
+        margin-top: auto;
+      }
+      .hero1-img img {
+        width: 100%;
+        height: 90vh;
+        /* height: auto;
+            aspect-ratio: 4 / 3;  */
+        object-fit: cover;
+      }
+      .featured {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url("../images/images/background-1.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        padding: 50px 30px;
+        color: #fff;
+      }
+      .featured img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        /* position: relative; */
+      }
+      .featured-card h3 {
+        /* position: absolute; */
+        color: #0c0246;
+        background-color: #fff;
+        padding: 10px;
+        /* width: fit-content; */
+        width: 100%;
+      }
+      /* .featured-bg-img{
+            z-index: -1;  
+         } */
+      .few-words {
+        margin: 30px auto;
+        /* padding: 30px 70px; */
+      }
+      .few-words img {
+        width: 80%;
+        height: 250px;
+        /* object-fit: cover; */
+      }
+      .stats-icons {
+        border: 1px solid rgb(19, 88, 214);
+        border-radius: 100%;
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        /* line-height: 100px; */
+        padding: 1rem;
+        font-size: 40px;
+        margin-bottom: 20px;
+      }
+      .vid {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .trusted {
+        text-align: center;
+      }
+      .trusted h3 {
+        border-bottom: #2f0eeb 2px solid;
+        padding: 20px;
+        display: inline-block;
+      }
+      .trusted p {
+        margin-bottom: 0;
+      }
+
+      .grp {
+        margin-top: 60px;
+      }
+      .grp img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+      .team {
+        margin-top: 60px;
+        /* padding: 20px; */
+      }
+      .team-title {
+        border-bottom: 2.3px solid #2f0eeb;
+        padding-bottom: 20px;
+        /* margin-bottom: 20px; */
+        display: inline-block;
+        /* text-align: center; */
+      }
+      .team .row {
+        padding: 50px;
+      }
+      .team .col {
+        text-align: left;
+      }
+      .team h3 {
+        color: aqua;
+        font-weight: bold;
+        margin-bottom: 0;
+        margin-top: 15px;
+        font-size: 1.25rem;
+      }
+
+      .team p {
+        margin-top: 0;
+        color: #666;
+      }
+      .team img {
+        border-radius: 30px;
+        width: 80%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .query {
+        color: white;
+        background-color: #13032c;
+      }
+      .news {
+        margin-top: 60px;
+        font-size: 0.9rem;
+        padding: 20px;
+        font-weight: 550;
+      }
+      .news h5 {
+        border-bottom: 2px solid #2f0eeb;
+        padding-bottom: 10px;
+        display: inline-block;
+      }
+      .icons-footer {
+        display: flex;
+        /* text-align: center; */
+        align-items: center;
+        /* margin-bottom: 12px; */
+        /* justify-content: center; */
+        /* gap: 10px; */
+      }
+      .icons-footer i {
+        align-items: center;
+        margin: 0 5px;
+      }
+      .icons-footer i:hover {
+        color: aqua;
+      }
+      .icons-footer p {
+        margin-bottom: 0;
+      }
+      .newsletter-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .newsletter-form .btn {
+        background-color: rgb(111, 7, 248);
+        color: white;
+      }
+      .newsletter-form input {
+        padding-right: 46px;
+      }
+      .map {
+        position: relative;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+      .custom-pointer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+        color: rgb(212, 13, 13);
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        pointer-events: none;
+      }
+      .underline-spacing {
+        text-underline-offset: 18px;
+        text-decoration-color: blue;
+        text-decoration-thickness: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center fw-semibold" href="#"
+          ><img src="../images/images/logo.png" alt="" />Edu4All</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link active px-3" aria-current="page" href="#"
+              >Home</a
+            >
+            <a class="nav-link active px-3" href="#">About</a>
+            <a class="nav-link active px-3" href="#">Courses</a>
+            <a class="nav-link active px-3" href="#">Contact</a>
+            <button type="button" class="btn btn-outline-primary px-3">
+              Login
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- <div class="container"> -->
+    <div class="row hero1 g-0">
+      <!-- Hero -->
+      <div class="col col-md-6">
+        <div class="pt-5 px-5 d-flex flex-column justify-content-space-between">
+          <h1>Innovation and Discovery</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+            delectus ab illum vitae neque est corrupti at quae illo amet?Lorem
+            ipsum, dolor sit amet consectetur adipisicing elit. Sint eligendi
+            voluptate vitae quisquam harum sunt nulla dolores minus maxime
+            debitis, odit reiciendis fugiat qui ducimus placeat architecto
+            commodi reprehenderit. Amet.
+          </p>
+          <div class="hero1-btn mt-4">
+            <div class="btn btn-warning">Signup For execution</div>
+            <div class="btn btn-outline-light">Learn more</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="hero1-img">
+          <img class="img-fluid" src="../images/images/banner-1.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+    <!-- Statistics -->
+    <div class="stats container">
+      <h1 class="text-center text-decoration-underline underline-spacing mt-4">
+        Statistics
+      </h1>
+      <p class="text-center fs-8 mt-5">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo delectus ab
+        illum vitae neque est corrupti at quae illo amet?
+      </p>
+      <div class="row py-5 text-center">
+        <div class="col">
+          <div class="stats-icons">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <h3 class="text-primary">153</h3>
+          <p>Proffesor</p>
+        </div>
+        <div class="col">
+          <div class="stats-icons">
+            <i class="fa-solid fa-building-columns"></i>
+          </div>
+          <h3 class="text-primary">12</h3>
+          <p>Campus</p>
+        </div>
+        <div class="col">
+          <div class="stats-icons">
+            <i class="fa-solid fa-user-group"></i>
+          </div>
+          <h3 class="text-primary">3257</h3>
+          <p>Students</p>
+        </div>
+        <div class="col">
+          <div class="stats-icons">
+            <i class="fa-solid fa-book"></i>
+          </div>
+          <h3 class="text-primary">343</h3>
+          <p>Courses</p>
+        </div>
+      </div>
+    </div>
+    <div class="featured">
+      <!-- <div class="featured-bg-img">
+                <img src="../images/images/background-1.jpg" alt="">
+            </div> -->
+      <h1 class="text-center text-decoration-underline underline-spacing">
+        Featured Program
+      </h1>
+      <p class="text-center fs-8 mt-5">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo delectus ab
+        illum vitae neque est corrupti at quae illo amet?
+      </p>
+      <div class="row gy-4 g-5 mt-4 featured-card">
+        <div class="col-6 col-md-3">
+          <img
+            class="img-fluid"
+            src="../images/images/card-anthropology.jpg"
+            alt=""
+          />
+          <h3>Anthropology</h3>
+        </div>
+        <div class="col-6 col-md-3">
+          <img
+            class="img-fluid"
+            src="../images/images/card-copywriting.jpg"
+            alt=""
+          />
+          <h3>Copywriting</h3>
+        </div>
+        <div class="col-6 col-md-3">
+          <img
+            class="img-fluid"
+            src="../images/images/card-design.jpg"
+            alt=""
+          />
+          <h3>Design</h3>
+        </div>
+        <div class="col-6 col-md-3">
+          <img
+            class="img-fluid"
+            src="../images/images/card-economics.jpg"
+            alt=""
+          />
+          <h3>Economics</h3>
+        </div>
+        <div class="col-6 col-md-3">
+          <img
+            class="img-fluid"
+            src="../images/images/card-mathematics.jpg"
+            alt=""
+          />
+          <h3>Mathematics</h3>
+        </div>
+        <div class="col-6 col-md-3">
+          <img src="../images/images/card-physics.jpg" alt="" />
+          <h3>Physics</h3>
+        </div>
+        <div class="col-6 col-md-3">
+          <img src="../images/images/card-psychology.jpg" alt="" />
+          <h3>Psychology</h3>
+        </div>
+        <div class="col-6 col-md-3">
+          <img src="../images/images/card-programming.jpg" alt="" />
+          <h3>Programming</h3>
+        </div>
+      </div>
+    </div>
+    <div class="few-words container">
+      <div class="row">
+        <div class="col-md-8">
+          <h1>Few words about University</h1>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Necessitatibus, maiores molestias consequuntur hic voluptate ad!
+            Libero eum laboriosam aliquam saepe perferendis velit labore ab ex
+            error quibusdam, et laborum maiores? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Accusamus consequuntur distinctio
+            laboriosam, vitae sapiente porro tempora! Fugiat illo corrupti quis
+            doloremque dolores. Nihil, quis praesentium dolorem, officiis
+            dolorum consectetur inventore odio, omnis tenetur impedit eum
+            voluptatem nisi incidunt voluptatibus ea?
+          </p>
+          <div class="btn btn-outline-primary">
+            Learn More <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img src="../images/images/logo.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+    <video class="vid" autoplay loop muted>
+      <source src="../media/media/Welcome-to-Cambridge.mp4" type="video/mp4" />
+    </video>
+
+    <div class="trusted">
+      <h3>Trusted By over 5000+ Students</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
+      </p>
+    </div>
+
+    <div class="grp">
+      <div class="row g-0">
+        <div class="col-6 col-md-3">
+          <img src="../images/images/galary-1.jpg" alt="" />
+        </div>
+        <div class="col-6 col-md-3">
+          <img src="../images/images/galary-2.jpg" alt="" />
+        </div>
+        <div class="col-6 col-md-3">
+          <img src="../images/images/galary-3.jpg" alt="" />
+        </div>
+        <div class="col-6 col-md-3">
+          <img src="../images/images/galary-4.jpg" alt="" />
+        </div>
+        <div class="col-6 col-md-3">
+          <img src="../images/images/galary-5.jpg" alt="" />
+        </div>
+        <div class="col-6 col-md-3">
+          <img src="../images/images/galary-6.jpg" alt="" />
+        </div>
+        <div class="col-6 col-md-3">
+          <img src="../images/images/galary-7.jpg" alt="" />
+        </div>
+        <div class="col-6 col-md-3">
+          <img src="../images/images/galary-8.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="team container text-center">
+      <h2 class="team-title">Our Team</h2>
+      <div class="row text-start">
+        <div class="col">
+          <img src="../images/images/instructor-1.jpg" alt="" />
+          <h3>John Smith</h3>
+          <p>Geophysics</p>
+        </div>
+        <div class="col">
+          <img src="../images/images/instructor-2.jpg" alt="" />
+          <h3>John Smith</h3>
+          <p>Geophysics</p>
+        </div>
+        <div class="col">
+          <img src="../images/images/instructor-3.jpg" alt="" />
+          <h3>John Smith</h3>
+          <p>Geophysics</p>
+        </div>
+        <div class="col">
+          <img src="../images/images/instructor-4.avif" alt="" />
+          <h3>John Smith</h3>
+          <p>Geophysics</p>
+        </div>
+      </div>
+    </div>
+    <div class="query">
+      <div class="row">
+        <div class="col">
+          <img src="../images/images/help.jpg" alt="" />
+        </div>
+        <div class="col p-5">
+          <h2 class="text-center">Send Us Query</h2>
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Email address</label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+              <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label">Department</label>
+              <select id="disabledSelect" class="form-select">
+                <option>Advance ML</option>
+                <option>ET</option>
+                <option>ML</option>
+                <option>Physics</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="usermessage" class="form-label">Message</label>
+              <textarea
+                class="form-control"
+                id="usermessage"
+                rows="7"
+              ></textarea>
+            </div>
+            <div class="mb-3 form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="exampleCheck1"
+              />
+              <label class="form-check-label" for="exampleCheck1"
+                >Aggreed to all Terms & Conditions</label
+              >
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Submit Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="news container">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>Conatct Us</h5>
+          <div class="icons-footer">
+            <i class="fa-solid fa-mobile"></i>
+            <p>+91 1234567890</p>
+          </div>
+          <div class="icons-footer">
+            <i class="fa-solid fa-envelope"></i>
+            <p>SU_SIT@gmail.com</p>
+          </div>
+          <div class="icons-footer">
+            <i class="fa-solid fa-location-dot"></i>
+            <p>SIT, SU</p>
+          </div>
+        </div>
+        <div class="col-md-3 news-box">
+          <h5>Newletter</h5>
+          <p>Subscribe to our newsletter to get the latest updates and news.</p>
+
+          <form class="newsletter-form">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Enter your email"
+              style="border-radius: 10px 0 0 10px"
+            />
+            <button
+              type="submit"
+              class="btn"
+              style="border-radius: 0 10px 10px 0"
+            >
+              <i class="fa-solid fa-bell"></i>
+            </button>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <div class="map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d14964.144117804699!2d85.79741315!3d20.3401302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x3a1908e064769e73%3A0x9288172f3a98c7a4!2sSilicon%20University!3m2!1d20.350677299999997!2d85.806336!4m5!1s0x3a1908e064769e73%3A0x9288172f3a98c7a4!2sSilicon%20Hills%2C%20near%20DLF%20cybercity%2C%20Chandaka%20Industrial%20Estate%2C%20Infocity%2C%20Patia%2C%20Bhubaneswar%2C%20Odisha%20751024!3m2!1d20.350677299999997!2d85.806336!5e0!3m2!1sen!2sin!4v1767903476734!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+            <div class="custom-pointer">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="footer bg-primary text-white d-flex justify-content-center align-items-center"
+      style="min-height: 50px"
+    >
+      <p class="m-0">© 2023 SU_SIT. All rights reserved.</p>
+    </div>
+
+    <script src="./bootstrap.bundle.min.js"></script>
+  </body>
+</html>
