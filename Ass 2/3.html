@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .page {
+      width: 100px;
+      height: 100px;
+      /* background-color: rgb(17, 0, 0); */
+      border: 2px solid black;
+    }
+    /* .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } */
+  </style>
+  <link rel="stylesheet" href="./bootstrap.min.css">
+  <body>
+    <div class="container">
+            
+        <div class="box">
+        <div class="page">
+            <!-- <div class="page" name="page"></div> -->
+        </div>
+        <div class="buttons">
+            <!-- <button></button> -->
+        </div>
+        <div class="add" onclick="addMore()">
+            <button>ADD</button>
+        </div>
+        </div>
+        
+    </div>
+    <script>
+      let colors = ["red", "green", "blue", "yellow", "pink", "orange"];
+      let buttons = document.querySelector(".buttons");
+      for (let c of colors) {
+        let btn = document.createElement("button");
+        btn.textContent = c;
+        buttons.appendChild(btn);
+        btn.style.backgroundColor = c;
+      }
+    //   console.log(buttons);
+
+      function addMore(){
+        let color = prompt("Enter Color");
+        colors.push(color);
+
+        let col = document.createElement("input");
+        col.type="color";
+        col.addEventListener("change", (e) => {
+            colors.push(e.target.value);
+        })
+        // if(color){
+
+        // }
+        // let inp = document.createElement("button");
+        // inp.type="button";
+        // inp.textContent=color;
+        // inp.style.backgroundColor=color;
+        
+        // inp.addEventListener("click",()=>{
+        //     let color = prompt("Enter Color");
+        //     colors.push(color);
+        //     addMore();
+        // })
+        buttons.appendChild(inp);
+      }
+      buttons.addEventListener("click", (e) => {
+        console.log(e);
+        console.log(e.target);
+        if (e.target.tagName === "BUTTON") {
+          let page = document.querySelector(".page");
+          page.style.backgroundColor = e.target.textContent;
+        }
+      });
+    </script>
+    <script src="./bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "students": [
+    {
+      "name": "Priyansu",
+      "age": "21",
+      "branch": "CSEssssssss",
+      "id": "1"
+    },
+    {
+      "name": "Dibya",
+      "age": "29",
+      "branch": "ECEs",
+      "id": "3"
+    },
+    {
+      "id": "3609",
+      "name": "Kan",
+      "age": "21",
+      "branch": "cs"
+    },
+    {
+      "id": "e1f7",
+      "name": "nsd",
+      "age": "wsdsd",
+      "branch": "sc"
+    },
+    {
+      "id": "795c",
+      "name": "dfsdsdf",
+      "age": "dfdf",
+      "branch": "fdsf"
+    },
+    {
+      "id": "169c",
+      "name": "cse",
+      "age": "svss",
+      "branch": "ss"
+    }
+  ]
+}

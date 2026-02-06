@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>U HAve clicked <span>0</span> Times</p>
+    <button id = "firstBtn">+</button>
+    <button id = "secondBtn" onclick="decCount()">-</button>
+    <script>
+        let count = 0;
+        span = document.querySelector("span")
+        span.textContent=count;
+        document.querySelector("#firstBtn").addEventListener("click",()=>{
+            count++;
+            span.textContent = count;
+        })
+        function decCount(){
+            count--;
+            span.textContent = count;
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>TODO LIST</h2>
+        <div class="div">
+            <input type="text" id="task" class="form-control task" placeholder="Enter ur Task">
+            <input type="date" id="date" class="form-control task">
+            <button id="addBtn">ADD</button>
+            <button id="addList" onclick="addList()">Add To List</button>
+        </div>
+        <div>
+            <ul>
+                <!-- <li></li> -->
+            </ul>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                Lists
+            </div>
+            <ul class="list-group list-group-flush" id="list">
+                <!-- <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li> -->
+            </ul>
+        </div>
+    </div>    
+    <script src="./bootstrap.bundle.min.js"></script>
+    <script>
+        let addBtn = document.getElementById("addBtn");
+        let inp = document.querySelector(".task");
+        addBtn.addEventListener("click", ()=>{
+            let task = inp.value;
+            let date = document.querySelector("input[type=date]").value;
+            let li = document.createElement("li");
+            li.textContent = task + " " + date;
+            let ul = document.querySelector("ul");
+            let btn = document.createElement("button");
+            btn.textContent="Done";
+            btn.addEventListener("click",()=>{
+                li.style.textDecoration="line-through";
+            })
+            let btn2 = document.createElement("button");
+            btn2.textContent="Delete";
+            btn2.addEventListener("click",()=>{
+                li.remove();
+                btn.style.display="none";
+                btn2.style.display="none";
+            })
+            ul.appendChild(li);
+            ul.appendChild(btn);
+            ul.appendChild(btn2);
+            inp.value="";
+            inp.focus();  
+            
+            
+        })
+        inp.addEventListener("keydown",(e)=>{
+            if(e.key=="Enter"){
+                addBtn.click();
+                inp.value="";
+                inp.focus();
+            }
+        })
+
+        function addList(){
+            let inp = document.getElementById("task").value;
+            let date = document.getElementById("date").value;
+            let li = document.createElement("li");
+            li.classList.add("list-group-item");
+            li.textContent = inp + " " + date;
+            let ul = document.querySelector("#list");
+            // ul.appendChild(li);
+            let btn1 = document.createElement("button");
+            btn1.textContent = "Done";
+            btn1.onclick = function(){
+                li.style.textDecoration="line-through";
+            }
+            let btn2 = document.createElement("button");
+            btn2.textContent="Delete";
+            btn2.onclick = function(){
+                li.remove();
+                btn1.style.display="none";
+                btn2.style.display="none";
+            }
+            ul.appendChild(li);
+            ul.appendChild(btn1);
+            ul.appendChild(btn2);
+            
+        }
+    </script>
+</body>
+</html>
