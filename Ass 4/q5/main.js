@@ -10,6 +10,32 @@ let currId = null;
 //     const data = await response.data;
 //     return data;
 // }
+
+let searchInput = document.querySelector(".search input");
+searchInput.addEventListener("input",(e)=>{
+    // console.log(searchInput.value);
+    console.log(e.target.value);
+    let searchValue = e.target.value;
+    // console.log(searchValue.length)
+    fetchData().then((data)=>{
+        tableBody.innerHTML = "";
+        data.forEach((item)=>{
+            if(item.name.toLowerCase().includes(searchValue.toLowerCase())){
+                console.log(item);
+                let row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${item.id}</td>
+                    <td>${item.name}</td>
+                    <td>${item.age}</td>
+                    <td>${item.branch}</td>
+                    <td><button class="btn btn-primary" onclick="editStud(${item.id})">Edit</button></td>
+                    <td><button class="btn btn-danger" onclick="dltStud(${item.id})">Delete</button></td>
+                `
+                tableBody.appendChild(row);
+            }
+        })
+    })
+})
 function fetchData(){
     return new Promise((res,rej)=>{
         axios.get("http://localhost:3000/students")
